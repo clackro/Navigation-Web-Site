@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">   
+    <title>Navigation Website</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul class="nav-list">
+                    <li><button class="nav-button" type="reset" onclick="location.href='school.html'">SCHOOL</button></li>
+                    <li><button class="nav-button" type="reset" onclick="location.href='personal.html'">PERSONAL</button></li>
+                    <li><button class="nav-button" id="searchBtn">SEARCH</button></li>
+                    <li><button class="nav-button" type="reset" onclick="location.href='coding.html'">CODING</button></li>
+                    <li><button class="nav-button" type="reset" onclick="location.href='game.html'">GAME</button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="search-section">
+                <div class="pacman">
+                    <div class="pacman-top"></div>
+                    <div class="pacman-bottom"></div>
+                </div>    
+                <form class="search-form" action="https://www.google.com/search" method="get" target="_blank">
+                    <input type="search" name="q" class="search-input" autocomplete="off" placeholder="Search Google..." aria-label="Search Google">
+                    <div class="feed"></div>
+                </form>
+            </section>
+    
+                <section class="links-section">
+                    <button class="link-button" type="reset" onclick="window.open('https://www.google.com.tr/')">Google</button>
+                    <button class="link-button" type="reset" onclick="window.open('https://www.youtube.com/')">Youtube</button>
+                    <button class="link-button" type="reset" onclick="window.open('https://www.instagram.com/')">Instagram</button>
+                    <button class="link-button" type="reset" onclick="window.open('https://www.linkedin.com/in/oguzhan-celik0/')">Linkedin</button>
+                    <button class="link-button" type="reset" onclick="window.open('https://www.blackbox.ai/')">Blackbox</button>
+                    <button class="link-button" type="reset" onclick="window.open('https://chatgpt.com/')">Chatgpt</button>
+                    <button class="link-button" type="reset" onclick="window.open('https://claude.ai/new')">Claude</button>
+                    <button class="link-button" type="reset" onclick="window.open('https://quillbot.com/summarize')">Quillbot</button>
+                    <button class="link-button" type="reset" onclick="window.open('https://m365.cloud.microsoft/?auth=1')">Microsoft Office</button>
+                    <button class="link-button" type="reset" onclick="window.open('https://drive.google.com/drive/u/0/my-drive')">Google Drive</button>
+                    <button class="link-button" type="reset" onclick="window.open('https://zty.pe/')">Z-Type</button>
+                    <button class="link-button" type="reset" onclick="window.open('https://dash.infinityfree.com/accounts')">Hosting Infinity</button>
+                </section>
+            </main>
+        </div>
+    
+        <script>
+            const searchBtn = document.getElementById('searchBtn');
+            const searchSection = document.querySelector('.search-section');
+            const linksSection = document.querySelector('.links-section');
+            const pacman = document.querySelector('.pacman');
+            const feed = document.querySelector('.feed');
+    
+            searchBtn.addEventListener('click', () => {
+                searchSection.classList.add('active');
+                linksSection.classList.add('pushed');
+                searchSection.querySelector('input').focus();
+    
+                if (pacman.classList.contains('exit')) {
+                    pacman.classList.remove('exit');
+                    feed.classList.remove('exit');
+                }
+                pacman.classList.toggle('active');
+            });
+    
+            document.addEventListener('click', (e) => {
+                if (!searchSection.contains(e.target) && e.target !== searchBtn && searchSection.classList.contains('active')) {
+                    pacman.classList.remove('active');
+                    feed.classList.remove('active');
+                    pacman.classList.add('exit');
+                    feed.classList.add('exit');
+    
+                    setTimeout(() => {
+                        searchSection.classList.remove('active');
+                        linksSection.classList.remove('pushed');
+                    }, 1800); 
+                }
+            });
+    
+            document.querySelectorAll('button').forEach(button => {
+                button.addEventListener('mousedown', () => {
+                    button.style.transform = 'scale(0.95)';
+                });
+    
+                button.addEventListener('mouseup', () => {
+                    button.style.transform = '';
+                });
+            });
+        </script>
+    </body>
+</html>

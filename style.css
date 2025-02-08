@@ -1,0 +1,230 @@
+:root {
+    --primary-bg: #2a2623;
+    --nav-bg: #4f453e;
+    --button-bg: #7f7266;
+    --link-bg: #a28474;
+    --link-hover: #9e7059;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('PressStart2PRegular.ttf') format('truetype');
+}
+
+body {
+    background-color: var(--primary-bg);
+    overflow-x: hidden; 
+}
+
+.container {
+    width: min(95%, 1200px);
+    margin: auto;
+    padding: 3rem;
+}
+
+header {
+    padding-left: 10rem;
+    padding-right: 10rem;
+    margin-bottom: 2rem;
+}
+
+nav {
+    background: var(--nav-bg);
+    border-radius: 2.5rem;
+    padding: 1rem ;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.nav-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 1.5rem;
+    background-color: var(--button-bg);
+    color: white;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 14px;
+}
+
+.nav-button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+main {
+    position: relative;
+}
+
+.search-section {
+    position: absolute;
+    top: -200%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90%, 600px);
+    padding: 1rem;
+    transition: top 1s ease-in-out;
+    z-index: 10;
+}
+
+.search-section.active {
+    top: 0;
+}
+
+.search-form {
+    width: 100%;
+    position: relative;
+}
+
+body input[type="search"] {
+  padding-left: 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem;
+    color: white;
+    border: 3px solid #a28474;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background: rgb(0, 0, 0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 15px;
+}
+
+input::placeholder {
+  color: #efecec;
+}
+
+.feed {
+    position: absolute;
+    top: 35%;
+    left: 0px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 12;
+    animation: eat 1s linear 0s infinite;
+}
+
+.links-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+    padding: 3rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.links-section.pushed {
+    transform: translateY(5rem);
+}
+
+.link-button {
+    padding: clamp(.5rem, 4vw, 2rem);
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--link-bg);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.link-button:hover {
+    transform: scale(1.05);
+    background-color: var(--link-hover);
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        gap: 0.5rem;
+    }
+    
+    .links-section.pushed {
+        transform: translateY(6rem);
+    }
+}
+
+.pacman {
+    position: absolute;
+    left: -154%;
+    top: 53%;
+    z-index: 13;
+    transform: translateY(-50%);
+    transition: 3.5s ease-in-out;
+}
+
+.pacman.active {
+    left: 3%;
+    top: 53%;
+    z-index: 13;
+    transform: translate(-50%, -50%);
+}
+
+.pacman.exit {
+    left: 450%; 
+    top: 53%;
+    z-index: 13; 
+    transform: translate(-50%, -50%);
+}
+
+.pacman-top {
+    background-color: yellow;
+    height: 50px;
+    width: 100px;
+    border-radius: 100px 100px 0 0;
+    animation: spin1 0.5s infinite linear;
+}
+
+.pacman-bottom {
+    background-color: yellow;
+    height: 50px;
+    width: 100px;
+    border-radius: 0 0 100px 100px;
+    animation: spin2 0.5s infinite linear;
+}
+
+/* Animation */
+
+@keyframes spin1 {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(-35deg); }
+}
+
+@keyframes spin2 {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(35deg); }
+}
+
+@keyframes eat {
+    0% { 
+        box-shadow: 
+            180px 0 0 0 white,  
+            380px 0 0 0 white,  
+            580px 0 0 0 white;  
+    }
+    100% { 
+        box-shadow: 
+            80px 0 0 0 white,   
+            180px 0 0 0 white,  
+            380px 0 0 0 white;  
+    }
+}
