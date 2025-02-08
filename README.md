@@ -3,7 +3,7 @@
 This project is a navigation website with various links and a search function. Users can easily access links in different categories and search on Google.
 
 ## Project Structure
-
+ 
 The project has the following file and folder structure:
 
 ## Technologies Used
