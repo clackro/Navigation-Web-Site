@@ -1,34 +1,34 @@
-# Navigation Website
+#  Navigation Website
 
-Bu proje, çeşitli bağlantılar ve bir arama işlevi içeren bir gezinme web sitesidir. Kullanıcılar, farklı kategorilerdeki bağlantılara kolayca erişebilir ve Google'da arama yapabilirler.
+This project is a navigation website with various links and a search function. Users can easily access links in different categories and search on Google.
 
-## Proje Yapısı
+## Project Structure
 
-Proje aşağıdaki dosya ve klasör yapısına sahiptir:
+The project has the following file and folder structure:
 
-## Kullanılan Teknolojiler
+## Technologies Used
 
 - HTML
 - CSS
 - JavaScript
 
-## Özellikler
+## Features
 
-- Farklı kategorilerdeki bağlantılara erişim
-- Google'da arama yapma işlevi
-- Düğmelere tıklama animasyonları
-- Pacman animasyonu
+- Access to links in different categories
+- Google search functionality
+- Button click animations
+- Pacman animation
 
-## Kullanım
+## Usage
 
-- Ana sayfada bulunan düğmelere tıklayarak farklı kategorilere erişebilirsiniz.
-- Arama düğmesine tıklayarak Google'da arama yapabilirsiniz.
-- Düğmelere tıkladığınızda animasyonlar göreceksiniz.
+- You can access different categories by clicking on the buttons on the home page.
+- You can search Google by clicking on the search button.
+-  When you click on the buttons you will see animations.
 
-## Katkıda Bulunma
+## Contributing
 
-Katkıda bulunmak isterseniz, lütfen bir pull request gönderin veya bir issue açın.
+If you would like to contribute, please submit a pull request or open an issue.
 
-## Lisans
+## License
 
-Bu proje MIT Lisansı ile lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına bakın.
+This project is licensed under the MIT License. See the `LICENSE` file for more information.
